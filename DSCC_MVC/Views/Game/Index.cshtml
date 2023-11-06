@@ -1,0 +1,47 @@
+﻿@model System.Collections.Generic.List<DSCC_MVC.Models.Game>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h2>Games</h2>
+<a asp-action="Create">Create New</a>
+<table class="table">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Developer</th>
+        <th>Engine</th>
+        <th>Release Date</th>
+        <th>Genre</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.GameName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeveloperName)
+            </td>            
+            <td>
+                @Html.DisplayFor(modelItem => item.EngineName)
+            </td>            
+            <td>
+                @Html.DisplayFor(modelItem => item.ReleaseDate)
+            </td>            
+            <td>
+                @Html.DisplayFor(modelItem => item.GameGenre.GenreName)
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { id = item.GameId }) |
+                @Html.ActionLink("Edit", "Edit", new { id = item.GameId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.GameId })
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

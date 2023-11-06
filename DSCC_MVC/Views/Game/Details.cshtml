@@ -1,0 +1,49 @@
+﻿@model DSCC_MVC.Models.Game
+
+@{
+    ViewBag.Title = Model.GameName;
+    Layout = "_Layout";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Genre</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Name
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.GameName)
+        </dd>
+        <dt class = "col-sm-2">
+            Developer
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DeveloperName)
+        </dd>
+        <dt class = "col-sm-2">
+            Engine
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EngineName)
+        </dd>
+        <dt class = "col-sm-2">
+            Release Date
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ReleaseDate)
+        </dd>
+        <dt class = "col-sm-2">
+            Genre
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.GameGenre.GenreName)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new {  id = Model.GameId  }) |
+    <a asp-action="Index">Back to List</a>
+</div>

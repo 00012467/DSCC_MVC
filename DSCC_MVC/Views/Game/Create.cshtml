@@ -1,0 +1,50 @@
+﻿@model DSCC_MVC.Models.DTOs.GameViewModelDTO
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+<form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="Game.GameName">Game Name:</label>
+        <input asp-for="Game.GameName" class="form-control"/>
+        <span asp-validation-for="Game.GameName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Game.DeveloperName">Developer Name:</label>
+        <input asp-for="Game.DeveloperName" class="form-control"/>
+        <span asp-validation-for="Game.DeveloperName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Game.EngineName">Engine Name:</label>
+        <input asp-for="Game.EngineName" class="form-control"/>
+        <span asp-validation-for="Game.EngineName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Game.ReleaseDate">Release Date:</label>
+        <input asp-for="Game.ReleaseDate" type="month" class="form-control"/>
+        <span asp-validation-for="Game.ReleaseDate" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Game.GameGenreId">Genre:</label>
+        <select asp-for="Game.GameGenreId" asp-items="Model.Genres" class="form-control"></select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

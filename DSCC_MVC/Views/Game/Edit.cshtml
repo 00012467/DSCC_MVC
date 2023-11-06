@@ -1,0 +1,48 @@
+﻿@model DSCC_MVC.Models.DTOs.GameViewModelDTO?
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<form asp-action="Edit">
+    <input type="hidden" asp-for="Game.GameId" />
+    @*<div class="form-group">
+        <label asp-for="Game.GameId" class="control-label"></label>
+        <input asp-for="Game.GameId" class="form-control" readonly/> 
+        <span asp-validation-for="Game.GameId" class="text-danger"></span>
+    </div>*@
+    <div class="form-group">
+        <label asp-for="Game.GameName">Game Name:</label>
+        <input asp-for="Game.GameName" class="form-control" />
+        <span asp-validation-for="Game.GameName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Game.DeveloperName">Developer Name:</label>
+        <input asp-for="Game.DeveloperName" class="form-control" />
+        <span asp-validation-for="Game.DeveloperName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Game.EngineName">Engine Name:</label>
+        <input asp-for="Game.EngineName" class="form-control" />
+        <span asp-validation-for="Game.EngineName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Game.ReleaseDate">Release Date:</label>
+        <input asp-for="Game.ReleaseDate" type="month" class="form-control" />
+        <span asp-validation-for="Game.ReleaseDate" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Game.GameGenreId">Genre:</label>
+        <select asp-for="Game.GameGenreId" asp-items="Model.Genres" class="form-control"></select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
